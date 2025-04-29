@@ -11,12 +11,21 @@ def calculate(value_1,value_2,operation):
         else:
             return "Cannot divide by zero"
     return "Invalid operation."
-    
 
-Number_1 = int(input("Type in your first number"))
-Number_2 = int(input("Type in your second number"))
-Calculation = (input("Type in your calculating operation"))
+while True:
+    first_input = input("Enter the first number or type quit to exit")
+    if first_input.lower() == 'quit':
+        print("Logging off")
+        break
 
-answer = calculate(Number_1,Number_2,Calculation)
+    second_input = input("Enter the second number")
+    calculation = input("Enter the calculation")
 
-print(answer)
+    try:
+        Number_1 = float(first_input)
+        Number_2 = float(second_input)
+        answer = calculate(Number_1,Number_2,calculation)
+        print(answer)
+
+    except ValueError:
+        print("Invalid number. Please try again")
